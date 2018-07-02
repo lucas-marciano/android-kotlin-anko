@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Anko</string>
+    <string name="toast_button">Toast</string>
+    <string name="snackbar_button">Snackbar</string>
+    <string name="alert_button">Alert</string>
+    <string name="selectors_button">Selectors</string>
+    <string name="intent_button">Intent</string>
+</resources>
