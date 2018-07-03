@@ -23,14 +23,26 @@ class MainActivity : AppCompatActivity(), AnkoLogger  {
 
     }
 
+    /**
+     * Show a toast
+     * @see [http://github.com/Kotlin/anko/wiki/Anko-Commons-%E2%80%93-Dialogs#toasts]
+      */
     fun showToast(view: View) {
         toast("Hi there!")
     }
 
+    /**
+     * Show a snackbar.
+     * @see [https://github.com/Kotlin/anko/wiki/Anko-Commons-%E2%80%93-Dialogs#snackbars]
+     */
     fun showSnackBar(view: View) {
         snackbar(view, "Wow, such duration")
     }
 
+    /**
+     * Show a alert with buttons.
+     * @see [https://github.com/Kotlin/anko/wiki/Anko-Commons-%E2%80%93-Dialogs#alerts]
+     */
     fun showAlert(view: View) {
         alert("Hi, I'm Roy", "Have you tried turning it off and on again?") {
             yesButton { toast("Yes!!!…") }
@@ -38,6 +50,10 @@ class MainActivity : AppCompatActivity(), AnkoLogger  {
         }.show()
     }
 
+    /**
+     * Show alert with selector.
+     * @see [https://github.com/Kotlin/anko/wiki/Anko-Commons-%E2%80%93-Dialogs#selectors]
+     */
     fun showSelector(view: View) {
         val countries = listOf("Call", "Send Text", "Browser", "Share", "E-mail")
 
@@ -52,17 +68,18 @@ class MainActivity : AppCompatActivity(), AnkoLogger  {
         }
     }
 
+    /**
+     * Open new activity.
+     * @see [https://github.com/Kotlin/anko/wiki/Anko-Commons-%E2%80%93-Intents]
+     */
     fun openIntent(view: View) {
         startActivity(intentFor<SecondActivity>("id" to 5, "second" to 2).singleTop())
     }
 
-    fun permissionCall() {
-        if (!mPermissions?.checkPermissions()!!) {
-            mPermissions!!.requestPermissions(PERMISSIONS_REQUEST_CODE)
-        }
-        makeCall("9999999999")
-    }
-
+    /**
+     * Logcat controller.
+     * @see [https://github.com/Kotlin/anko/wiki/Anko-Commons-%E2%80%93-Logging]
+     */
     fun saveLog(view: View) {
         toast("Log clicked")
 
@@ -72,5 +89,16 @@ class MainActivity : AppCompatActivity(), AnkoLogger  {
         warn("Warn")
         error("Erro")
         wtf("WTF")
+    }
+
+
+    /**
+     * Method that check ther permission of to use the phone to calling.
+     */
+    private fun permissionCall() {
+        if (!mPermissions?.checkPermissions()!!) {
+            mPermissions!!.requestPermissions(PERMISSIONS_REQUEST_CODE)
+        }
+        makeCall("9999999999")
     }
 }
