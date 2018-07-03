@@ -8,7 +8,7 @@ import com.lucasmarciano.anko.utils.PermissionHelper
 import org.jetbrains.anko.design.*
 import org.jetbrains.anko.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), AnkoLogger  {
     private val PERMISSIONS_REQUEST_CODE = 1
     private var mPermissions: PermissionHelper? = null
     private var permissions = arrayOf(
@@ -61,5 +61,16 @@ class MainActivity : AppCompatActivity() {
             mPermissions!!.requestPermissions(PERMISSIONS_REQUEST_CODE)
         }
         makeCall("9999999999")
+    }
+
+    fun saveLog(view: View) {
+        toast("Log clicked")
+
+        info("Info")
+        verbose("Verbose")
+        debug("Debug")
+        warn("Warn")
+        error("Erro")
+        wtf("WTF")
     }
 }
