@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity(), AnkoLogger  {
     fun showAlert(view: View) {
         alert("Hi, I'm Roy", "Have you tried turning it off and on again?") {
             yesButton { toast("Yes!!!…") }
-            noButton { toast("Noooooooo…") }
+            noButton { toast("Nooooooo…") }
         }.show()
     }
 
